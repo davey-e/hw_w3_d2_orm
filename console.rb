@@ -14,17 +14,27 @@ bounty2 = Bounty.new({
   'homeworld' => 'Tatooine',
   'favourite_weapon' => 'Lightsaber'
   })
+
+bounty3 = Bounty.new({
+    'name' => 'Han',
+    'bounty_value' => '500',
+    'homeworld' => 'Corellia',
+    'favourite_weapon' => 'Blaster'
+    })
+
 Bounty.delete_all()
 
 bounty1.save
 bounty2.save
+bounty3.save
 
-bounty1.name = 'Jaba The Hutt'
+bounty1.name = 'Jabba The Hutt'
 bounty1.update()
 
-bounty1.delete
+bounty2.delete
 
-find_result = Bounty.find(bounty2)
+find_result = Bounty.find_by_id(53)
+p find_result
 
 binding.pry
 nil
