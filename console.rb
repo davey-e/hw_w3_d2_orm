@@ -18,3 +18,6 @@ bounty2 = Bounty.new({
 
 bounty1.save
 bounty2.save
+
+bounty1.name = 'Jaba The Hutt'
+bounty1.update()
