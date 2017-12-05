@@ -36,5 +36,8 @@ bounty2.delete
 find_result = Bounty.find_by_id(53)
 p find_result
 
+find_result = Bounty.find_by_name('Han')
+p find_result
+
 binding.pry
 nil

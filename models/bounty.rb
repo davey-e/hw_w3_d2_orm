@@ -46,6 +46,17 @@ class Bounty
     return bounty.map {|bounty| Bounty.new(bounty)}
   end
 
+  def self.find_by_name(search_name)
+    db = PG.connect({dbname: 'space_cowboys', host: 'localhost'})
+    sql = "SELECT * FROM bounties
+    WHERE name = $1"
+    values = [search_name]
+    db.prepare("single", sql)
+    bounty = db.exec_prepared("single", values)
+    db.close()
+    return bounty.map {|bounty| Bounty.new(bounty)}
+  end
+
   #Update
   def update()
     db = PG.connect({dbname: 'space_cowboys', host: 'localhost'})
