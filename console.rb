@@ -23,3 +23,8 @@ bounty1.name = 'Jaba The Hutt'
 bounty1.update()
 
 bounty1.delete
+
+find_result = Bounty.find(bounty2)
+
+binding.pry
+nil
