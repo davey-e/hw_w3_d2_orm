@@ -41,9 +41,10 @@ class Bounty
     WHERE id = $1"
     values = [search_id]
     db.prepare("single", sql)
-    bounty = db.exec_prepared("single", values)
+    results_array = db.exec_prepared("single", values)
     db.close()
-    return bounty.map {|bounty| Bounty.new(bounty)}
+    bounty_hash = results_array[0]
+    return bounty = Bounty.new(bounty_hash)}
   end
 
   def self.find_by_name(search_name)
